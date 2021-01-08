@@ -1,4 +1,4 @@
-# ferramenta-de-texto
+# Ferramenta de Texto
 A ideia inicial do projeto era de criar um simples contador de caracteres para praticar mais a lógica com Javascript.
 Acabou que eu estava me divertindo no desenvolvimento desse projeto e quis adicionar mais coisas, afinal de contas
 aprender se divertindo no processo é muito melhor, hehehehe.

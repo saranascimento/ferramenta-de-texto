@@ -23,10 +23,42 @@ const textModifiedConversor = document.getElementById('textModifiedConversor')
 const buttons = document.querySelectorAll('.converte button')
 const abas = document.querySelectorAll("ul#abas a");
 const contentAbas = document.querySelectorAll("div.contentAba");
+const contentAba1 = document.querySelector("div.contentAba");
+
+
+// aba ativa
+const tabMenu = document.querySelectorAll('#abas li');
+const tabContent = document.querySelectorAll('.contentAba');
+
+if(tabMenu.length && tabContent.length) {
+    tabContent[0].classList.add('ativo');
+    
+
+    function activeTab(index) {
+    tabContent.forEach((content) => {
+        content.classList.remove('ativo');
+    });
+
+    const direcao = tabContent[index].dataset.anime;
+    tabContent[index].classList.add('ativo', direcao);
+    }
+
+    tabMenu.forEach((itemMenu, index) => {
+    itemMenu.addEventListener('click', () => {
+        
+        activeTab(index);
+    });
+    });
+}
+
 
 // guardar hash da url
 window.addEventListener('load', () => {
+        
+
     abas.forEach((a) => {
+        
+
         a.addEventListener('click', () => {
             let selected = a.parentNode.querySelector('a.selected')
             if(selected) selected.classList.remove('selected')
@@ -37,6 +69,11 @@ window.addEventListener('load', () => {
     if(location.hash) {
         document.querySelector('a[href="'+location.hash+'"]').classList.add('selected')
     }
+
+    
+    
+        
+
 })
 
 // binario

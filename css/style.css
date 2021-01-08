@@ -65,23 +65,15 @@ nav ul#abas a.selected, nav ul#abas a:hover{
     cursor: default;
 }
 
-nav ul#abas a:target{
-    margin-top: 0px;
-    background-color: #9f2bb3;
-    color: white;
-    height: 35px;
-    padding-top: 4px;
-    cursor: default;
-}
-
 
 .contentAba {
     display: none;
 }
 
-.contentAba:target {
-    display: block;
+.ativo{
+    display: block !important;
 }
+
 
 h1.titulo {
     color: darkmagenta;

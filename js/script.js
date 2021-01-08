@@ -27,7 +27,7 @@ const contentAba1 = document.querySelector("div.contentAba");
 
 
 // aba ativa
-const tabMenu = document.querySelectorAll('#abas li');
+const tabMenu = document.querySelectorAll('#abas a');
 const tabContent = document.querySelectorAll('.contentAba');
 
 if(tabMenu.length && tabContent.length) {
@@ -66,9 +66,9 @@ window.addEventListener('load', () => {
      
         })
     })
-    if(location.hash) {
-        document.querySelector('a[href="'+location.hash+'"]').classList.add('selected')
-    }
+    // if(location.hash) {
+    //     document.querySelector('a[href="'+location.hash+'"]').classList.add('selected')
+    // }
 
     
     

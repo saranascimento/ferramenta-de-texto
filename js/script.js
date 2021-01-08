@@ -1,7 +1,7 @@
 // binario 
 const inputBinario = document.getElementById('inputBinario')
 const textModifiedBinary = document.getElementById('textModifiedBinary')
-console.log(inputBinario)
+
 // contador
 const inputContador = document.getElementById('inputContador')
 const caracteres = document.getElementById('caracteres');
@@ -31,7 +31,7 @@ window.addEventListener('load', () => {
             let selected = a.parentNode.querySelector('a.selected')
             if(selected) selected.classList.remove('selected')
             a.classList.add('selected')
-            console.log(a)
+     
         })
     })
     if(location.hash) {
@@ -61,7 +61,7 @@ function binarioParaDecimal(valor) {
     }
 
     let numeros = valor.split("");
-    console.log(numeros)
+
 
     const somenteBinario = numeros.every(ehBinario);
 
@@ -107,10 +107,6 @@ function abaLinkActive(classe) {
             }
             
                 this.className += classe;
-            
-                for (let contentAba of contentAbas) {
-                    console.log(contentAba)
-                }
             
         })
     });
@@ -292,11 +288,11 @@ return palavras.innerHTML = inputContador.value.split(/\s+/).filter(palavra => p
 }
 
 function totalDeEspacos(inputContador) {
-    return espacos.innerHTML = inputContador.value.split('').filter(value => value === ' ').length ;
+    return espacos.innerHTML = inputContador.value.split('').filter(espaco => espaco === ' ').length ;
 }
 
 function totalDeLinhas(inputContador) {
-    return linhas.innerHTML = inputContador.value.split(/\n/).filter(palavra => palavra !== '').length; 
+    return linhas.innerHTML = inputContador.value.split(/\n/).filter(linha => linha !== '').length; 
 }
 
 
@@ -306,7 +302,7 @@ function totalDeVogais(inputContador) {
 }
 
 function totalDeConsoantes(inputContador) {
-    return consoantes.innerHTML = inputContador.value.toLowerCase().split('').filter(value => "bcdfghjklmnpqrstvwxyz".includes(value)).length;
+    return consoantes.innerHTML = inputContador.value.toLowerCase().split('').filter(consoante => "bcdfghjklmnpqrstvwxyz".includes(consoante)).length;
 }
 
 function totalDeNumeros(inputContador) {
@@ -327,6 +323,5 @@ function totalDeMaiusculos(inputContador) {
 }
 
 function totalDeLetras(inputContador) {
-    console.log(inputContador.value.split(/[^a-zA-Z]/).join(''))
     return letras.innerHTML = inputContador.value.split(/[^a-zA-Z]/).join('').length;
 }

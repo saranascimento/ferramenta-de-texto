@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferramenta de texto</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js" defer></script>
+</head>
+<body>
+    <section class="container">
+        <h1 class="titulo">Ferramenta de Texto</h1>
+        <nav >
+            <ul id="abas">
+                <a href="#tab1"><li>Binário</li></a>
+                <a href="#tab2"><li>Conversor de texto</li></a>
+                <a href="#tab3"><li>Contador de caracteres</li></a>
+            </ul>
+        </nav>
+        
+        <div id="tab1" class="contentAba" >
+            <div id="text-box">
+                <p>Binário:</p>
+                <div>
+                    <textarea placeholder=":)" autofocus name="text" id="inputBinario" cols="30" rows="10"></textarea>
+                </div>
+                <p>Decimal:</p>
+                <div>
+                    <textarea placeholder=":)" autofocus name="textModified" id="textModifiedBinary" cols="30" rows="10"></textarea>
+                </div>
+                <p> </p>
+            </div>
+        </div>
+         <div id="tab2" class="contentAba">
+            <div id="text-box">
+                <p>Texto original:</p>
+                <div>
+                    <textarea placeholder=":)" autofocus name="inputConversor" id="inputConversor" cols="30" rows="10"></textarea>
+                </div>
+                <p>Texto convertido:</p>
+                <div>
+                    <textarea placeholder="(:" autofocus name="textModifiedConversor" id="textModifiedConversor" cols="30" rows="10"></textarea>
+                </div>
+                <p> </p>
+                <div class="converte">
+                    <button class="converte__maiusculo ">Maiúsculos</button>
+                        <button class="converte__minusculo ">Minúsculos</button>
+                        <button class="converte__reverso ">Reverso</button>
+                        <button class="converte__invertido ">Inverso</button>
+                        <button class="converte__titulo ">Título</button>
+                        <button class="converte__sublinhado ">Sublinhado</button>
+                        <button class="converte_negrito ">Negrito</button>
+                        <button class="converte__limpar ">Limpar</button>
+                </div>
+            </div>
+        </div>
+        <div id="tab3" class="contentAba">
+            <div id="text-box">
+                <p>Digite o texto no campo abaixo:</p>
+                <div>
+                    <textarea placeholder=":)" autofocus name="text" id="inputContador" cols="30" rows="10"></textarea>
+                </div>
+                <p>Contador: </p>
+                <div>
+                    <div id="results-wrapper">
+                        <div class="results">
+                            <p >Caracteres: <b id="caracteres">0</b> </p>
+                            <p >Minúsculos:  <b id="minusculos">0</b></p>
+                            <p >Maiúsculos: <b id="maiusculos">0</b></p>
+                        </div>
+                        <div class="results">
+                            <p >letras: <b id="letras">0</b></p>
+                            <p >Vogais: <b id="vogais">0</b></p>
+                            <p >Palavras: <b id="palavras">0</b></p>
+                        </div>
+                        <div class="results">
+                            <p >Espaços:  <b id="espacos">0</b></p>
+                            <p >Símbolos: <b id="caracter-especial">0</b></p>
+                            <p >Sem espaços: <b id="caracter-sem-espaco">0</b></p>
+                        </div>
+                        <div class="results">
+                            <p >Números: <b id="numeros">0</b></p>
+                            <p >Parágrafos: <b id="linhas">0</b></p>
+                            <p >Consoantes: <b id="consoantes">0</b></p>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                <p> </p>
+            </div>
+        </div> 
+
+    </section>
+
+    
+    
+</body>
+</html>

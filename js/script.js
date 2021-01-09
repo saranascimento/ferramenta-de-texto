@@ -155,10 +155,12 @@ for(let button of buttons) {
 
 
 function converteParaMaiusculo(inputConversor) {
+    textModifiedConversor.classList.remove("titulo")
 textModifiedConversor.value = inputConversor.value.toLocaleUpperCase();
 }
 
 function converteParaMinusculo(inputConversor) {
+    textModifiedConversor.classList.remove("titulo")
     textModifiedConversor.value = inputConversor.value.toLocaleLowerCase();
 }
 

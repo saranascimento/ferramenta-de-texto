@@ -26,23 +26,21 @@ const contentAbas = document.querySelectorAll("div.contentAba");
 
 
 // abas
-const tabMenu = document.querySelectorAll('#abas a');
-const tabContent = document.querySelectorAll('.contentAba');
 
-if(tabMenu.length && tabContent.length) {
-    tabContent[0].classList.add('ativo');
+if(abas.length && contentAbas.length) {
+    contentAbas[0].classList.add('ativo');
     
 
     function activeTab(index) {
-    tabContent.forEach((content) => {
+        contentAbas.forEach((content) => {
         content.classList.remove('ativo');
     });
 
-    const direcao = tabContent[index].dataset.anime;
-    tabContent[index].classList.add('ativo', direcao);
+    const direcao = contentAbas[index].dataset.anime;
+    contentAbas[index].classList.add('ativo', direcao);
     }
 
-    tabMenu.forEach((itemMenu, index) => {
+    abas.forEach((itemMenu, index) => {
     itemMenu.addEventListener('click', () => {
         
         activeTab(index);
@@ -74,10 +72,11 @@ abaLinkActive('selected')
 
 // binario
 inputBinario.addEventListener("keyup", event => {
-    textModifiedBinary.value = binarioParaDecimal(event.target.value)
+     textModifiedBinary.value = binarioParaDecimal(event.target.value.split(/\s+/).filter(value => value !== '').join(''), event)
+    
 })
 
-function binarioParaDecimal(valor) {
+function binarioParaDecimal(valor, event) {
 
     let base = 2;
     let decimal = 0;
@@ -88,6 +87,8 @@ function binarioParaDecimal(valor) {
     const ehBinario = numero => {
         return Number(numero) === 0 || Number(numero) === 1; 
     }
+
+    
     
     const converteParaDecimal = (soma, numeroAtual, index) => {
         return soma + (numeroAtual * (base ** (potencia - index)));
@@ -97,12 +98,17 @@ function binarioParaDecimal(valor) {
 
 
     const somenteBinario = numeros.every(ehBinario);
+    console.log(event)
+    
 
-    if(somenteBinario === false){
+    if(somenteBinario === false  && event.key !== "Backspace"){
         alert('Os números só podem ser 0 ou 1');
         return ":("
+
     } 
 
+    if( somenteBinario === false ) return ":("
+    
     decimal = numeros.reduce(converteParaDecimal, 0)
 
     return decimal
@@ -160,38 +166,38 @@ function converteParaReverse(inputConversor) {
     textModifiedConversor.value = inputConversor.value.split('').reverse().join('');
 }
 
-function converteParaInvertido(inputConversor) {
-
-    let stringTemporaria = '';
-
-    inputConversor.value.split('').map(letra => {
-        if(letra === 'undefined') return ''
-        stringTemporaria += inverteString(letra);
-        
-    })
-
-    textModifiedConversor.value = stringTemporaria;
-}
-
 function converteParaNegrito(inputConversor) {
-    textModifiedConversor.classList.toggle("negrito");
     textModifiedConversor.value = inputConversor.value
-    
+    textModifiedConversor.classList.toggle("negrito");
 }
 
 function converteParaSublinhado(inputConversor) {
-    
     textModifiedConversor.value = inputConversor.value;
-    textModifiedConversor.classList.toggle("sublinhado");
+    if(textModifiedConversor.value !== '') textModifiedConversor.classList.toggle("sublinhado");
+    
 }
 
 function limparAreaDeTexto(inputConversor) {
     textModifiedConversor.value = '';
     inputConversor.value = '';
+    textModifiedConversor.classList.remove("sublinhado")
 }
 
 function converteParaTitulo(inputConversor) {
+    textModifiedConversor.value = inputConversor.value;
+    textModifiedConversor.classList.toggle("titulo");
+}
 
+function converteParaInvertido(inputConversor) {
+
+    let stringTemporaria = '';
+
+    inputConversor.value.split('').map(letra => {
+        stringTemporaria += inverteString(letra);
+        
+    })
+
+    textModifiedConversor.value = stringTemporaria;
 }
 
 function inverteString(letra) {
@@ -239,7 +245,7 @@ const caracteresInverted = {
         'O' : 'O',
         'P' : 'Ԁ',
         'Q' : 'Q',
-        'R' : 'R',
+        'R' : '\u0281',
         'S' : 'S',
         'T' : '┴',
         'U' : '∩',
@@ -261,13 +267,20 @@ const caracteresInverted = {
         '.' : '\u02D9',
         '_' : '\u203E',
         ':' : '\u061B',
-        '9' : '6',
+        '1' : 'Ɩ',
+        '2' : 'ᄅ',
+        '3' : '\u025B',
+        '4' : 'ㄣ',
+        '5' : 'ϛ',
         '6' : '9',
+        '7' : 'ㄥ',
+        '8' : '8',
+        '9' : '6',
         ' ' : ' ',
     }
 
 
-    return caracteresInverted[letra]
+    return caracteresInverted[letra] || letra
     
 }
 

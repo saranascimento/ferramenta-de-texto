@@ -179,6 +179,10 @@ button:hover, .activeColorful {
     font-weight: 700;
 }
 
+.titulo {
+    text-transform: capitalize;
+}
+
 @media only screen and (max-width: 639px) {
     body p {
         font-size: 14px;

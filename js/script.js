@@ -23,10 +23,9 @@ const textModifiedConversor = document.getElementById('textModifiedConversor')
 const buttons = document.querySelectorAll('.converte button')
 const abas = document.querySelectorAll("ul#abas a");
 const contentAbas = document.querySelectorAll("div.contentAba");
-const contentAba1 = document.querySelector("div.contentAba");
 
 
-// aba ativa
+// abas
 const tabMenu = document.querySelectorAll('#abas a');
 const tabContent = document.querySelectorAll('.contentAba');
 
@@ -51,30 +50,27 @@ if(tabMenu.length && tabContent.length) {
     });
 }
 
+function abaLinkActive(classe) {
+    
+    abas.forEach(aba => {
+        aba.addEventListener('click', function() {
+            
+            var activeMenuAba = document.getElementsByClassName(classe);
 
-// guardar hash da url
-window.addEventListener('load', () => {
-        
-
-    abas.forEach((a) => {
-        
-
-        a.addEventListener('click', () => {
-            let selected = a.parentNode.querySelector('a.selected')
-            if(selected) selected.classList.remove('selected')
-            a.classList.add('selected')
-     
+            if (activeMenuAba.length > 0) {
+                activeMenuAba[0].className = activeMenuAba[0].className.replace(classe, "");
+            }
+            
+                this.className += classe;
+            
         })
-    })
-    // if(location.hash) {
-    //     document.querySelector('a[href="'+location.hash+'"]').classList.add('selected')
-    // }
+    });
 
-    
-    
-        
+}
 
-})
+abaLinkActive('selected')
+
+
 
 // binario
 inputBinario.addEventListener("keyup", event => {
@@ -132,25 +128,7 @@ function btnActive(classe) {
 
 btnActive("activeColorful")
 
-function abaLinkActive(classe) {
-    
-    abas.forEach(aba => {
-        aba.addEventListener('click', function() {
-            
-            var activeMenuAba = document.getElementsByClassName(classe);
 
-            if (activeMenuAba.length > 0) {
-                activeMenuAba[0].className = activeMenuAba[0].className.replace(classe, "");
-            }
-            
-                this.className += classe;
-            
-        })
-    });
-
-}
-
-abaLinkActive('selected')
 
 
 
@@ -164,6 +142,7 @@ for(let button of buttons) {
         if(button.className.includes("converte__invertido")) converteParaInvertido(inputConversor)
         if(button.className.includes("converte__sublinhado")) converteParaSublinhado(inputConversor)
         if(button.className.includes("converte_negrito")) converteParaNegrito(inputConversor)
+        if(button.className.includes("converte_titulo")) converteParaTitulo(inputConversor)
         
     })
 }
@@ -209,6 +188,10 @@ function converteParaSublinhado(inputConversor) {
 function limparAreaDeTexto(inputConversor) {
     textModifiedConversor.value = '';
     inputConversor.value = '';
+}
+
+function converteParaTitulo(inputConversor) {
+
 }
 
 function inverteString(letra) {

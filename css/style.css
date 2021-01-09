@@ -208,10 +208,17 @@ button:hover, .activeColorful {
     .contadorText {
         font-weight: 700;
     }
+
+    section.container {
+        width: 90vw;
+
+    }
 }
 @media only screen and (min-width: 640px) {
- 
+    section.container {
+        width: 70vw;
 
+    }
 
     /* contador */
     #results-wrapper {

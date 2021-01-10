@@ -40,9 +40,9 @@ if(abas.length && contentAbas.length) {
     contentAbas[index].classList.add('ativo', direcao);
     }
 
-    abas.forEach((itemMenu, index) => {
-    itemMenu.addEventListener('click', () => {
-        
+    abas.forEach((aba, index) => {
+        aba.addEventListener('click', () => {
+
         activeTab(index);
     });
     });
@@ -138,9 +138,9 @@ btnActive("activeColorful")
 
 
 
-
 for(let button of buttons) {
     button.addEventListener('click', () => {
+         textModifiedConversor.value = inputConversor.value;
         if(button.className.includes("converte__maiusculo")) converteParaMaiusculo(inputConversor)
         if(button.className.includes("converte__minusculo")) converteParaMinusculo(inputConversor)
         if(button.className.includes("converte__limpar")) limparAreaDeTexto(inputConversor)
@@ -168,13 +168,11 @@ function converteParaReverse(inputConversor) {
     textModifiedConversor.value = inputConversor.value.split('').reverse().join('');
 }
 
-function converteParaNegrito(inputConversor) {
-    textModifiedConversor.value = inputConversor.value
+function converteParaNegrito() {
     textModifiedConversor.classList.toggle("negrito");
 }
 
-function converteParaSublinhado(inputConversor) {
-    textModifiedConversor.value = inputConversor.value;
+function converteParaSublinhado() {
     if(textModifiedConversor.value !== '') textModifiedConversor.classList.toggle("sublinhado");
     
 }
@@ -183,10 +181,11 @@ function limparAreaDeTexto(inputConversor) {
     textModifiedConversor.value = '';
     inputConversor.value = '';
     textModifiedConversor.classList.remove("sublinhado")
+    textModifiedConversor.classList.remove("titulo")
+    textModifiedConversor.classList.remove("negrito")
 }
 
-function converteParaTitulo(inputConversor) {
-    textModifiedConversor.value = inputConversor.value;
+function converteParaTitulo() {
     textModifiedConversor.classList.toggle("titulo");
 }
 

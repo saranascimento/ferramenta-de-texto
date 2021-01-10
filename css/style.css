@@ -276,6 +276,10 @@ button:hover, .activeColorful {
 
 
 @media only screen and (min-width: 1200px) {
+    section.container {
+        width: 52vw;
+
+    }
 
     /* contador */
     .results p {

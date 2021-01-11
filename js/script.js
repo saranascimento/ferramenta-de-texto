@@ -24,49 +24,81 @@ const buttons = document.querySelectorAll('.converte button')
 const abas = document.querySelectorAll("ul#abas a");
 const contentAbas = document.querySelectorAll("div.contentAba");
 
+// dark mode
+const switchToggle = document.querySelector("input[name=theme]");
+const textBox = document.querySelectorAll('.text-box');
+const textos  = document.querySelectorAll('.text-box p');
+
+function toggleDarkMode() {
+    
+    switchToggle.addEventListener('click', () => {
+       
+        let body = document.body;
+        body.classList.toggle('darkMode')
+
+       
+        textBox.forEach((box) => {
+            box.classList.toggle('textBoxDark')
+        });
+
+        textos.forEach((texto) => {
+            texto.classList.toggle('lightText')
+        });
+   
+        
+    })
+
+    
+ }
+ toggleDarkMode() 
+
 
 // abas
-
-if(abas.length && contentAbas.length) {
-    contentAbas[0].classList.add('ativo');
+function iniciaTabs() {
+    if(abas.length && contentAbas.length) {
+        contentAbas[0].classList.add('ativo');
+        
     
-
-    function activeTab(index) {
-        contentAbas.forEach((content) => {
-        content.classList.remove('ativo');
-    });
-
-    const direcao = contentAbas[index].dataset.anime;
-    contentAbas[index].classList.add('ativo', direcao);
+        function activeTab(index) {
+            contentAbas.forEach((content) => {
+            content.classList.remove('ativo');
+            
+        });
+        contentAbas[index].classList.add('ativo');
+        }
+    
+        abas.forEach((aba, index) => {
+            aba.addEventListener('click', () => {
+    
+            activeTab(index);
+            });
+        });
     }
-
-    abas.forEach((aba, index) => {
-        aba.addEventListener('click', () => {
-
-        activeTab(index);
-    });
-    });
 }
+iniciaTabs();
 
-function abaLinkActive(classe) {
+function abaLinkActive() {
     
     abas.forEach(aba => {
         aba.addEventListener('click', function() {
             
-            var activeMenuAba = document.getElementsByClassName(classe);
+            let activeMenuAba = document.getElementsByClassName('selected');
+            
 
             if (activeMenuAba.length > 0) {
-                activeMenuAba[0].className = activeMenuAba[0].className.replace(classe, "");
-            }
-            
-                this.className += classe;
-            
+                activeMenuAba[0].className = activeMenuAba[0].className.replace('selected', "");
+
+            } 
+        
+            this.className += 'selected';
         })
+        console.log(aba.className.includes('selected'))
+       
     });
 
 }
 
-abaLinkActive('selected')
+abaLinkActive()
 
 
 
@@ -98,7 +130,6 @@ function binarioParaDecimal(valor, event) {
 
 
     const somenteBinario = numeros.every(ehBinario);
-    console.log(event)
     
 
     if(somenteBinario === false  && event.key !== "Backspace"){
@@ -123,9 +154,10 @@ function btnActive(classe) {
         var current = document.getElementsByClassName(classe);
     
         if (current.length > 0) {
-            current[0].className = current[0].className.replace(classe, "");
+            current[0].className = current[0].className.replace(classe, " ");
         }
     
+       console.log( this.className)
         this.className += classe;
         });
     }
@@ -140,15 +172,16 @@ btnActive("activeColorful")
 
 for(let button of buttons) {
     button.addEventListener('click', () => {
-         textModifiedConversor.value = inputConversor.value;
+          if(!button.className.includes("converte__copiar"))textModifiedConversor.value = inputConversor.value;
         if(button.className.includes("converte__maiusculo")) converteParaMaiusculo(inputConversor)
         if(button.className.includes("converte__minusculo")) converteParaMinusculo(inputConversor)
         if(button.className.includes("converte__limpar")) limparAreaDeTexto(inputConversor)
         if(button.className.includes("converte__reverso")) converteParaReverse(inputConversor)
         if(button.className.includes("converte__invertido")) converteParaInvertido(inputConversor)
         if(button.className.includes("converte__sublinhado")) converteParaSublinhado(inputConversor)
-        if(button.className.includes("converte_negrito")) converteParaNegrito(inputConversor)
-        if(button.className.includes("converte_titulo")) converteParaTitulo(inputConversor)
+        if(button.className.includes("converte__negrito")) converteParaNegrito(inputConversor)
+        if(button.className.includes("converte__titulo")) converteParaTitulo(inputConversor)
+        if(button.className.includes("converte__copiar")) copiarTexto(textModifiedConversor)
         
     })
 }
@@ -187,6 +220,22 @@ function limparAreaDeTexto(inputConversor) {
 
 function converteParaTitulo() {
     textModifiedConversor.classList.toggle("titulo");
+}
+
+function copiarTexto(textModifiedConversor) {
+  
+    if(textModifiedConversor.value !== '') {
+        let copyText = textModifiedConversor;
+
+        copyText.select();
+        copyText.setSelectionRange(0, 99999)
+        document.execCommand("copy");
+        alert("Texto copiado: " + copyText.value);
+
+        textModifiedConversor.value = copyText.value
+    }
+    
+
 }
 
 function converteParaInvertido(inputConversor) {
@@ -282,7 +331,6 @@ const caracteresInverted = {
 
 
     return caracteresInverted[letra] || letra
-    
 }
 
 
@@ -359,3 +407,4 @@ function totalDeMaiusculos(inputContador) {
 function totalDeLetras(inputContador) {
     return letras.innerHTML = inputContador.value.split(/[^a-zA-Z]/).join('').length;
 }
+

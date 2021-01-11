@@ -8,31 +8,27 @@
     <script src="./js/script.js" defer></script>
 </head>
 <body>
-    <section class="container">
-        <h1 class="titulo">Ferramenta de Texto</h1>
+    <header>
+       
+        <div>
+            <label class="switch">
+                <input name='theme' type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
         <nav >
             <ul id="abas">
-                <li><a href="#tab1" class='selected'>Binário</a></li>
-                <li><a href="#tab2">Conversor</a></li>
-                <li><a href="#tab3">Contador</a></li>
+                <li><a href="#tab1" class='selected '>Conversor</a></li>
+                <li><a href="#tab2"  class=' '>Contador</a></li>
+                <li><a href="#tab3" class=' '>Binário</a></li>
             </ul>
         </nav>
+    </header>
+    <section class="container">
+       
         
-        
-        <div id="tab1" class="contentAba "  >
-            <div class="text-box">
-                <p>Binário:</p>
-                <div class='wrapperTextarea'>
-                    <textarea placeholder=":)" autofocus name="text" id="inputBinario" cols="30" rows="10"></textarea>
-                </div>
-                <p>Decimal:</p>
-                <div class='wrapperTextarea'>
-                    <textarea placeholder=":)" autofocus name="textModified" id="textModifiedBinary" cols="30" rows="10"></textarea>
-                </div>
-                <p> </p>
-            </div>
-        </div>
-         <div id="tab2" class="contentAba">
+
+        <div id="tab1" class="contentAba">
             <div class="text-box">
                 <p>Texto original:</p>
                 <div class='wrapperTextarea'>
@@ -44,19 +40,20 @@
                 </div>
                 <p> </p>
                 <div class="converte">
-                        <button class="converte_tituloqw">Título</button>
+                        <button class="converte__titulo ">Título</button>
                         <button class="converte__invertido ">Inverso</button>           
-                        <button class="converte_negrito ">Negrito</button>
+                        <button class="converte__negrito ">Negrito</button>
                        
                         <button class="converte__reverso ">Reverso</button>
                         <button class="converte__maiusculo ">Maiúsculos</button>
                         <button class="converte__minusculo ">Minúsculos</button>
                         <button class="converte__sublinhado ">Sublinhado</button>
+                        <button class="converte__copiar ">Copiar</button>
                          <button class="converte__limpar ">Limpar</button>
                 </div>
             </div>
         </div>
-        <div id="tab3" class="contentAba">
+        <div id="tab2" class="contentAba">
             <div class="text-box">
                 <p>Digite o texto no campo abaixo:</p>
                 <div class='wrapperTextarea'>
@@ -66,9 +63,9 @@
                 
                 <div id="results-wrapper">
                 <div class="results">
-                        <p >letras: <b id="letras">0</b></p>
-                        <p >Vogais: <b id="vogais">0</b></p>
-                        <p >Palavras: <b id="palavras">0</b></p>
+                        <p >letras: <b id="letras"> 0</b></p>
+                        <p >Vogais: <b id="vogais"> 0</b></p>
+                        <p >Palavras: <b id="palavras"> 0</b></p>
                     </div>
                     
                     <div class="results">
@@ -95,8 +92,24 @@
                 <p> </p>
             </div>
         </div> 
+        <div id="tab3" class="contentAba "  >
+            <div class="text-box">
+                <p>Binário:</p>
+                <div class='wrapperTextarea'>
+                    <textarea placeholder=":)" autofocus name="text" id="inputBinario" cols="30" rows="10"></textarea>
+                </div>
+                <p>Decimal:</p>
+                <div class='wrapperTextarea'>
+                    <textarea placeholder=":)" autofocus name="textModified" id="textModifiedBinary" cols="30" rows="10"></textarea>
+                </div>
+                <p> </p>
+            </div>
+        </div>
+        
+        
 
     </section>
+    
 
     
    

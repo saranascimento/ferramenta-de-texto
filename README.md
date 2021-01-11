@@ -1,4 +1,4 @@
-# Ferramenta de Texto
+# Ferramenta de Texto com conversor binário
 A ideia inicial do projeto era de criar um simples contador de caracteres para praticar mais a lógica com Javascript.
 Acabou que eu estava me divertindo no desenvolvimento desse projeto e quis adicionar mais coisas, afinal de contas
 aprender se divertindo no processo é muito melhor, hehehehe.
@@ -10,7 +10,7 @@ aprender se divertindo no processo é muito melhor, hehehehe.
 * Regex
 * Funções
 * Manipulação do DOM
-* Eventos de click e input
+* Eventos: click, input, keyup
 * Metódos: split, join, includes, filter, replace, forEach, every, reduce, toLocaleUpperCase, toLocaleLowerCase, toggle, Number
 * Mapeamento com objetos
 
@@ -18,7 +18,7 @@ aprender se divertindo no processo é muito melhor, hehehehe.
 * Conceito de abas
 
 
-### Screenshots do projeto
+### Screenshots da primeira versão do projeto
 
 ![image](https://ch3302files.storage.live.com/y4mZbyiLz1jru4Eyex8pE4ghOMTC_L5QxjljSJ3tqB5myHFkeVGUePSvR35BfnDv4RnvnHD2ZjOnP0LJnPJeiBtfC7S9EkK2VlQqJJLXjZYRlsqPZm9TbIvQgRRg8DyOKU-DiJu-ntpOx76Qk_U_lGDZJ0NkTh8lEijVLg0lSDtqcTN17f2DHutSpR5Ub0TJWUdLKp2ZCiowz_YcOHOGgVVEQ/binario.PNG?psid=1&width=878&height=581)
 

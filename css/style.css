@@ -6,22 +6,29 @@
 
 :root {
     /* initial colors */
-    --primary-color: #9f2bb3;
-    --secondary-color: #eec1ea;
-    --tertiary-color: #fafafa;
+    --primary-color: #eec1ea;
+    --secondary-color: #fafafa;
   
+    --neutral-primary-color: #9f2bb3;
+
     --dark-color: #8a2be2;
     --light-color: #fffaf0;
 
-    --border-textarea-color : #ccc; 
+    --btn-toggle-color: #dfb4df;
+    --border-textarea-color: #ccc;
+    --body-p: #9f2bb3;
+}
 
-    /* darkMode colors*/
-    --primary-darkMode-Color : #161b22; 
-    --secondary-darkMode-Color : #30363d; 
+.darkmode {
+       /* darkMode colors*/
+       --primary-color: #161b22;
+       --secondary-color: #21262d;
 
-    --light-darkMode-Color : #e5e2e2; 
-    --dark-darkMode-Color : #21262d;
-  }
+       --neutral-primary-color: #9f2bb3;
+
+       --border-dark-color: #454a51;
+       --body-p: white;
+}
 
 body {
     font-family: "Poppins", sans-serif;
@@ -31,13 +38,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--secondary-color);
-    color: var(--dark-color);
+    background: var(--primary-color);
+    color: var(--body-p);
     flex-direction: column;
 }
 
 body p {
-    color: var(--primary-color);
+    color: var(--tertiary-color);
 }
 
 header {
@@ -92,7 +99,7 @@ nav ul#abas a {
 
 nav ul#abas a.selected, nav ul#abas a:hover{
     margin-top: 0px;
-    background-color: var(--primary-color);
+    background-color: var(--neutral-primary-color);
     color: white;
     height: 35px;
     padding-top: 4px;
@@ -111,7 +118,8 @@ nav ul#abas a.selected, nav ul#abas a:hover{
 .text-box {
     padding-top: 27px;
     padding: 10px;
-    background-color: var(--tertiary-color);
+    background: var(--secondary-color);
+    border: 1px solid var(--border-dark-color);
     border-radius: 0px;
     display: flex;
     flex-direction: column;
@@ -139,20 +147,20 @@ textarea {
     flex-wrap: wrap;
 }
 
-button {
-    border: 1px solid var(--primary-color);
+.btnConverte {
+    border: 1px solid var(--neutral-primary-color);
     height: 25px;
     border-radius: 4px;
-    color: var(--primary-color);
-    background-color: var(--tertiary-color);
+    color: var(--neutral-primary-color);
+    background-color: #fafafa;
     font-size: 16px;
     cursor: pointer;
     outline: none;
     margin: 4px;
 }
 
-button:hover, .activeColorful {
-    background-color: var(--primary-color);
+.btnConverte:hover, .activeColorful {
+    background-color: var(--neutral-primary-color);
     color: white;
 }
 
@@ -196,29 +204,6 @@ button:hover, .activeColorful {
     text-transform: capitalize;
 }
 
-/* darkmode */
-body.darkMode {
-    background-color: var(--primary-darkMode-Color);
-    color: var(--tertiary-darkMode-Color);
-}
-
-nav ul#abas a.darkMode {
-    background-color: var(--primary-darkMode-Color);
-    color: var(--tertiary-darkMode-Color);
-}
-
-
-.textBoxDark {
-    background: var(--dark-darkMode-Color);
-    border: 1px solid var(--secondary-darkMode-Color);
-}
-
-
-.lightText {
-    color: white;
-}
-
-/* switch toggle */
 .switch {
     position: relative;
     display: inline-block;
@@ -236,19 +221,71 @@ nav ul#abas a.darkMode {
     height: 0;
   }
   
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #dfb4df;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: var(--input-slider-color);
+-webkit-transition: .4s;
+transition: .4s;
+}
+
+.slider:before {
+position: absolute;
+content: "";
+height: 26px;
+width: 26px;
+left: 4px;
+bottom: 4px;
+background-color: white;
+-webkit-transition: .4s;
+transition: .4s;
+}
+
+input:checked + .slider {
+background-color: var(--neutral-primary-color);
+}
+
+input:focus + .slider {
+box-shadow: 0 0 1px var(--neutral-primary-color);
+}
+
+input:checked + .slider:before {
+-webkit-transform: translateX(26px);
+-ms-transform: translateX(26px);
+transform: translateX(26px);
+}
+
+.slider.round {
+border-radius: 34px;
+}
+
+.slider.round:before {
+border-radius: 50%;
+}
+
+.wrapper-btn-darkMode {
+position: absolute;
+top: 0;
+right: 0;
+}
+
+button#toggle-darkMode {
+    background-color: var(--btn-toggle-color);
+    width: 60px;
+    height: 35px;
+    border-radius: 35px;
+    position: relative;
+    margin-top: 8px;
+    margin-right: 0;
+    outline: none;
+    border: none;
+}
+
+button#toggle-darkMode:before {
     position: absolute;
     content: "";
     height: 26px;
@@ -258,29 +295,18 @@ nav ul#abas a.darkMode {
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: var(--primary-color);
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px var(--primary-color);
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
     border-radius: 50%;
-  }
+}
+
+button#toggle-darkMode.active {
+    background-color: var(--neutral-primary-color);
+} 
+
+button#toggle-darkMode.active:before {
+    transform: translateX(26px);
+    background-color: white;
+}
+
 
 @media only screen and (max-width: 639px) {
 
@@ -309,9 +335,7 @@ nav ul#abas a.darkMode {
 
     .contadorText {
         font-weight: 700;
-    }
-    
-    
+    } 
 }
 
 @media only screen and (max-width: 799px) {
@@ -325,12 +349,10 @@ nav ul#abas a.darkMode {
         flex-direction: column;
         margin-right: 0px;
     }
-
   }
 
-
   @media only screen and (min-width: 800px) {
-    
+
     /* contador */
     #results-wrapper {
         width: 80%;
@@ -340,23 +362,18 @@ nav ul#abas a.darkMode {
  
         width: 30%;
     }
-   
 }
 
 @media only screen and (min-width: 900px) {
     section.container, header {
         width: 52vw;
-
     }
     
     /* contador */
     #results-wrapper {
         width: 100%;
     }
-   
-   
 }
-
 
 @media only screen and (min-width: 1200px) {
     section.container, header {

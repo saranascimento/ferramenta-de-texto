@@ -17,6 +17,12 @@ aprender se divertindo no processo é muito melhor, hehehehe.
 ### html
 * Conceito de abas
 
+### CSS
+* Variáveis
+
+### Web storage API
+* LocalStorage - Armazenamento de dados no navegador
+
 
 ### Screenshots da primeira versão do projeto
 

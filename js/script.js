@@ -25,44 +25,48 @@ const abas = document.querySelectorAll("ul#abas a");
 const contentAbas = document.querySelectorAll("div.contentAba");
 
 // dark mode
-const switchToggle = document.querySelector("input[name=theme]");
-const textBox = document.querySelectorAll('.text-box');
-const textos  = document.querySelectorAll('.text-box p');
+const darkModeToggle = document.querySelector("button#toggle-darkMode");
 
-function toggleDarkMode() {
-    
-    switchToggle.addEventListener('click', () => {
-       
-        let body = document.body;
-        body.classList.toggle('darkMode')
+let darkMode = localStorage.getItem('darkMode'); 
 
-       
-        textBox.forEach((box) => {
-            box.classList.toggle('textBoxDark')
-        });
+const enableDarkMode = () => {
+  document.body.classList.add('darkmode');
+  darkModeToggle.classList.add('active');
 
-        textos.forEach((texto) => {
-            texto.classList.toggle('lightText')
-        });
-   
-        
-    })
+  localStorage.setItem('darkMode', 'enabled');
+}
 
-    
- }
- toggleDarkMode() 
+const disableDarkMode = () => {
 
+  document.body.classList.remove('darkmode');
+  darkModeToggle.classList.remove('active');
+
+  localStorage.setItem('darkMode', null);
+}
+ 
+darkModeToggle.addEventListener('click', () => {
+  darkMode = localStorage.getItem('darkMode'); 
+
+  if (darkMode !== 'enabled') {
+    enableDarkMode();
+
+  } else {  
+    disableDarkMode(); 
+  }
+});
+
+if (darkMode === 'enabled') {
+    enableDarkMode();
+}
 
 // abas
 function iniciaTabs() {
     if(abas.length && contentAbas.length) {
         contentAbas[0].classList.add('ativo');
         
-    
         function activeTab(index) {
             contentAbas.forEach((content) => {
-            content.classList.remove('ativo');
-            
+            content.classList.remove('ativo');       
         });
         contentAbas[index].classList.add('ativo');
         }
@@ -82,30 +86,20 @@ function abaLinkActive() {
     abas.forEach(aba => {
         aba.addEventListener('click', function() {
             
-            let activeMenuAba = document.getElementsByClassName('selected');
-            
+            let activeMenuAba = document.getElementsByClassName('selected');   
 
             if (activeMenuAba.length > 0) {
                 activeMenuAba[0].className = activeMenuAba[0].className.replace('selected', "");
-
             } 
-        
             this.className += 'selected';
         })
-        console.log(aba.className.includes('selected'))
-       
     });
-
 }
-
 abaLinkActive()
-
-
 
 // binario
 inputBinario.addEventListener("keyup", event => {
      textModifiedBinary.value = binarioParaDecimal(event.target.value.split(/\s+/).filter(value => value !== '').join(''), event)
-    
 })
 
 function binarioParaDecimal(valor, event) {
@@ -120,22 +114,17 @@ function binarioParaDecimal(valor, event) {
         return Number(numero) === 0 || Number(numero) === 1; 
     }
 
-    
-    
     const converteParaDecimal = (soma, numeroAtual, index) => {
         return soma + (numeroAtual * (base ** (potencia - index)));
     }
 
     let numeros = valor.split("");
 
-
     const somenteBinario = numeros.every(ehBinario);
-    
 
     if(somenteBinario === false  && event.key !== "Backspace"){
         alert('Os números só podem ser 0 ou 1');
         return ":("
-
     } 
 
     if( somenteBinario === false ) return ":("
@@ -157,18 +146,12 @@ function btnActive(classe) {
             current[0].className = current[0].className.replace(classe, " ");
         }
     
-       console.log( this.className)
         this.className += classe;
         });
     }
 }
 
-
 btnActive("activeColorful")
-
-
-
-
 
 for(let button of buttons) {
     button.addEventListener('click', () => {
@@ -185,7 +168,6 @@ for(let button of buttons) {
         
     })
 }
-
 
 function converteParaMaiusculo(inputConversor) {
     textModifiedConversor.classList.remove("titulo")
@@ -207,7 +189,6 @@ function converteParaNegrito() {
 
 function converteParaSublinhado() {
     if(textModifiedConversor.value !== '') textModifiedConversor.classList.toggle("sublinhado");
-    
 }
 
 function limparAreaDeTexto(inputConversor) {
@@ -234,8 +215,6 @@ function copiarTexto(textModifiedConversor) {
 
         textModifiedConversor.value = copyText.value
     }
-    
-
 }
 
 function converteParaInvertido(inputConversor) {
@@ -243,8 +222,7 @@ function converteParaInvertido(inputConversor) {
     let stringTemporaria = '';
 
     inputConversor.value.split('').map(letra => {
-        stringTemporaria += inverteString(letra);
-        
+        stringTemporaria += inverteString(letra);   
     })
 
     textModifiedConversor.value = stringTemporaria;
@@ -328,12 +306,8 @@ const caracteresInverted = {
         '9' : '6',
         ' ' : ' ',
     }
-
-
     return caracteresInverted[letra] || letra
 }
-
-
 
 // contador
 inputContador.addEventListener('input', () => {
@@ -358,15 +332,12 @@ function totalDeCaracteres(inputContador) {
     return caracteres.innerHTML = inputContador.value.length;
 }
 
-
 function caracteresSemEspaco(inputContador ) {
     return caracterSemEspaco.innerHTML = inputContador.value.split(/\s+/).filter(value => value !== '').join('').length;
-
 }
 
 function totalDePalavras(inputContador) {
-
-return palavras.innerHTML = inputContador.value.split(/\s+/).filter(palavra => palavra !== '').length;
+    return palavras.innerHTML = inputContador.value.split(/\s+/).filter(palavra => palavra !== '').length;
 }
 
 function totalDeEspacos(inputContador) {
@@ -380,7 +351,6 @@ function totalDeLinhas(inputContador) {
 
 function totalDeVogais(inputContador) {
     return vogais.innerHTML = inputContador.value.toLowerCase().split(/[^aeiou]/).join('').length;
-
 }
 
 function totalDeConsoantes(inputContador) {
@@ -390,7 +360,6 @@ function totalDeConsoantes(inputContador) {
 function totalDeNumeros(inputContador) {
     return numeros.innerHTML =  inputContador.value.split(/[^0-9]/).join('').length;
 }
-
 
 function totalDeEspeciais(inputContador) {
     return caracterEspecial.innerHTML = inputContador.value.split(/[a-zA-Z0-9 \n]*/).join('').length;

@@ -9,12 +9,9 @@
 </head>
 <body>
     <header>
-       
-        <div>
-            <label class="switch">
-                <input name='theme' type="checkbox">
-                <span class="slider round"></span>
-            </label>
+      
+        <div class="wrapper-btn-darkMode">
+            <button id="toggle-darkMode"></button>
         </div>
         <nav >
             <ul id="abas">
@@ -25,9 +22,7 @@
         </nav>
     </header>
     <section class="container">
-       
-        
-
+        <!-- Conversor -->
         <div id="tab1" class="contentAba">
             <div class="text-box">
                 <p>Texto original:</p>
@@ -40,19 +35,19 @@
                 </div>
                 <p> </p>
                 <div class="converte">
-                        <button class="converte__titulo ">Título</button>
-                        <button class="converte__invertido ">Inverso</button>           
-                        <button class="converte__negrito ">Negrito</button>
-                       
-                        <button class="converte__reverso ">Reverso</button>
-                        <button class="converte__maiusculo ">Maiúsculos</button>
-                        <button class="converte__minusculo ">Minúsculos</button>
-                        <button class="converte__sublinhado ">Sublinhado</button>
-                        <button class="converte__copiar ">Copiar</button>
-                         <button class="converte__limpar ">Limpar</button>
+                        <button class="btnConverte converte__titulo ">Título</button>
+                        <button class="btnConverte converte__invertido ">Inverso</button>           
+                        <button class="btnConverte converte__negrito ">Negrito</button>                    
+                        <button class="btnConverte converte__reverso ">Reverso</button>
+                        <button class="btnConverte converte__maiusculo ">Maiúsculos</button>
+                        <button class="btnConverte converte__minusculo ">Minúsculos</button>
+                        <button class="btnConverte converte__sublinhado ">Sublinhado</button>
+                        <button class="btnConverte converte__copiar ">Copiar</button>
+                        <button class="btnConverte converte__limpar ">Limpar</button>
                 </div>
             </div>
         </div>
+        <!-- Contador -->
         <div id="tab2" class="contentAba">
             <div class="text-box">
                 <p>Digite o texto no campo abaixo:</p>
@@ -85,14 +80,12 @@
                         <p >Maiúsculos: <b id="maiusculos">0</b></p>
                         <p >Sem espaços: <b id="caracter-sem-espaco">0</b></p>
                     </div>
-                    
-                    
                 </div>
-                
                 <p> </p>
             </div>
-        </div> 
-        <div id="tab3" class="contentAba "  >
+        </div>
+         <!--Binario  -->
+        <div id="tab3" class="contentAba ">
             <div class="text-box">
                 <p>Binário:</p>
                 <div class='wrapperTextarea'>
@@ -105,16 +98,6 @@
                 <p> </p>
             </div>
         </div>
-        
-        
-
     </section>
-    
-
-    
-   
 </body>
-
-
-
 </html>

@@ -19,6 +19,7 @@ aprender se divertindo no processo é muito melhor, hehehehe.
 
 ### CSS
 * Variáveis
+* Responsividade
 
 ### Web storage API
 * LocalStorage - Armazenamento de dados no navegador
